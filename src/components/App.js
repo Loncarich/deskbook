@@ -9,8 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       results: [],
-      resultsImages: ['http://localhost:3000/images/default2.large.jpg',
-                      'http://localhost:3000/images/default1.large.jpg',
+      resultsImages: ['http://localhost:3000/images/default1.XL.jpg',
+                      'http://localhost:3000/images/default2.large.jpg',
                       'http://localhost:3000/images/default2.large.jpg']
     };
   }
