@@ -9,62 +9,84 @@ class Slider extends Component {
       resultsImages2: ['http://localhost:3000/images/default1.XL.jpg',
                       'http://localhost:3000/images/default2.large.jpg',
                       'http://localhost:3000/images/default1.XL.jpg'],
-      currentImage: 'http://localhost:3000/images/default1.XL.jpg',
+      currentImageIndex: 0,
+      prevPointer: 'hidden',
+      nextPointer: 'visible'
     };
   }
 
-  // handleNextClick() {
-  //   const imageWidth= document.documentElement.clientWidth;
-  //   this.setState({leftMargin: this.state.leftMargin - imageWidth});
-  //   console.log(document.documentElement.clientWidth);
-  //   //console.log(this.state.leftMargin);
-  // }
-
   handleNextClick() {
-    const currentIndex= this.state.resultsImages2.indexOf(this.state.currentImage);
-    this.setState({currentImage: this.state.resultsImages2[currentIndex + 1]});
+    const imageWidth= document.documentElement.clientWidth;
+    const newMargin= this.state.leftMargin - imageWidth;
+    const newIndex= this.state.currentImageIndex +1;
+    if (newIndex === this.state.resultsImages2.length - 1){
+      this.setState({nextPointer: 'hidden', currentImageIndex: newIndex, leftMargin: newMargin});
+    } else if (newIndex === 1){
+      this.setState({prevPointer: 'visible', currentImageIndex: newIndex, leftMargin: newMargin});
+    } else {
+      this.setState({currentImageIndex: newIndex, leftMargin: newMargin})
+    }
   }
 
-  // handlePrevClick() {
-  //   const imageWidth= document.documentElement.clientWidth;
-  //   this.setState({leftMargin: this.state.leftMargin + imageWidth});
-  // }
-
-    handlePrevClick() {
-    const currentIndex= this.state.resultsImages2.indexOf(this.state.currentImage);
-    this.setState({currentImage: this.state.resultsImages2[currentIndex - 1]});
+  handlePrevClick() {
+    const imageWidth= document.documentElement.clientWidth;
+    const newMargin= this.state.leftMargin + imageWidth;
+    const newIndex= this.state.currentImageIndex -1;
+    if (newIndex === 0){
+      this.setState({prevPointer: 'hidden', currentImageIndex: newIndex, leftMargin: newMargin});
+    } else if (newIndex === this.state.resultsImages2.length - 2){
+      this.setState({nextPointer: 'visible', currentImageIndex: newIndex, leftMargin: newMargin});
+    } else {
+      this.setState({currentImageIndex: newIndex, leftMargin: newMargin})
+    }
   }
-
 
   render() {
     const images= this.props.images.map((image, index) => {
-      return <li key= {index}>
-             </li>
+      const stylesSlide= {
+        backgroundImage: 'url('+image+')',
+        backgroundSize: '100% 100%',
+        width: '100vw',
+        paddingTop: '14.47%',
+        float: 'left'
+      }
+      return <div style= {stylesSlide} key= {index}>
+             </div>
       });
-    const leftMargin= this.state.leftMargin;
-    const stylesList = {
+    const stylesHolder = {
+      width: '300%',
+      position: 'absolute',
       top: 0,
+      bottom: 0,
       left: this.state.leftMargin,
       transition: 'left 0.5s',
-      width: '300%',
-      transition: 'right 0.5s'
     }
     const stylesSlider = {
-      backgroundImage: 'url('+this.state.currentImage+')',
-      backgroundSize: '100% 100%',
-      transition: 'background-image 0.5s linear'
+      overflow: 'hidden',
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      width: '100vw'
+    }
+    const stylesPrevPointer = {
+      visibility: this.state.prevPointer
+    }
+    const stylesNextPointer = {
+      visibility: this.state.nextPointer
     }
 
     return (
-      <div style= {stylesSlider} className='main-slider'>
-        <button disabled= {true} onClick= {() => {this.handleNextClick()}} className='main-slider-next'>{'>>'}</button>
-        <button onClick= {() => {this.handlePrevClick()}} className='main-slider-prev'>{'<<'}</button>
-        <ul style= {stylesList}>
-          {images}
-        </ul>
+      <div className='main-slider'>
+        <button style= {stylesNextPointer} onClick= {() => {this.handleNextClick()}} className='main-slider-next'>{'>>'}</button>
+        <button style= {stylesPrevPointer} onClick= {() => {this.handlePrevClick()}} className='main-slider-prev'>{'<<'}</button>
+        <div style= {stylesSlider}>
+          <div style= {stylesHolder}>
+            {images}
+          </div>
+        </div>
         <SearchBar />
       </div>
-
     );
   }
 };
