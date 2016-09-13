@@ -13,6 +13,11 @@ class Slider extends Component {
       prevPointer: 'hidden',
       nextPointer: 'visible'
     };
+    this.handleResize= this.handleResize.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
   }
 
   handleNextClick() {
@@ -30,8 +35,8 @@ class Slider extends Component {
 
   handlePrevClick() {
     const imageWidth= document.documentElement.clientWidth;
-    const newMargin= this.state.leftMargin + imageWidth;
     const newIndex= this.state.currentImageIndex -1;
+    const newMargin= 0;
     if (newIndex === 0){
       this.setState({prevPointer: 'hidden', currentImageIndex: newIndex, leftMargin: newMargin});
     } else if (newIndex === this.state.resultsImages2.length - 2){
@@ -41,16 +46,35 @@ class Slider extends Component {
     }
   }
 
+  handleResize() {
+    //update leftMargin on resize
+    var elemHolder= document.getElementById('holder');
+    const currentViewWidth= document.documentElement.clientWidth;
+    const newMargin= currentViewWidth * (this.state.currentImageIndex * -1) + 'px';
+    elemHolder.style.left= newMargin;
+    //update slide height on resize
+    const holderWidth= parseInt(getComputedStyle(elemHolder).getPropertyValue('width'), 10);
+    const holderHeight= parseInt(getComputedStyle(elemHolder).getPropertyValue('height'), 10);
+    var slider= document.getElementsByClassName('main-slider-slide');
+    for (var i= 0; i< slider.length; i++){
+      const newPaddingTop= ((holderHeight/holderWidth) * 100) + '%';
+      slider[i].style.paddingTop= newPaddingTop;
+    }
+  }
+
   render() {
+    const viewWidth= document.documentElement.clientWidth;
+    const viewHeight= document.documentElement.clientHeight;
+    const paddingTopCalc= (((viewHeight * 0.66666666)/(viewWidth * 3)) * 100) +'%';
     const images= this.props.images.map((image, index) => {
       const stylesSlide= {
         backgroundImage: 'url('+image+')',
         backgroundSize: '100% 100%',
         width: '100vw',
-        paddingTop: '14.47%',
+        paddingTop: paddingTopCalc,
         float: 'left'
       }
-      return <div style= {stylesSlide} key= {index}>
+      return <div style= {stylesSlide} className= 'main-slider-slide' key= {index}>
              </div>
       });
     const stylesHolder = {
@@ -58,7 +82,7 @@ class Slider extends Component {
       position: 'absolute',
       top: 0,
       bottom: 0,
-      left: this.state.leftMargin,
+      left: viewWidth * (this.state.currentImageIndex *  -1),
       transition: 'left 0.5s',
     }
     const stylesSlider = {
@@ -81,11 +105,11 @@ class Slider extends Component {
         <button style= {stylesNextPointer} onClick= {() => {this.handleNextClick()}} className='main-slider-next'>{'>>'}</button>
         <button style= {stylesPrevPointer} onClick= {() => {this.handlePrevClick()}} className='main-slider-prev'>{'<<'}</button>
         <div style= {stylesSlider}>
-          <div style= {stylesHolder}>
+          <div style= {stylesHolder} id= 'holder'>
             {images}
           </div>
         </div>
-        <SearchBar />
+        <SearchBar fetchResults= {this.props.fetchResults}/>
       </div>
     );
   }

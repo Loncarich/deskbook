@@ -13,13 +13,19 @@ class App extends Component {
                       'http://localhost:3000/images/default2.large.jpg',
                       'http://localhost:3000/images/default2.large.jpg']
     };
+    this.fetchResults= this.fetchResults.bind(this);
+  }
+
+  fetchResults() {
+    const that= this;
+    fetchData(that);
   }
 
   render (){
     return (
       <div className='main'>
         <NavBar />
-        <Slider images= {this.state.resultsImages}/>
+        <Slider fetchResults= {this.fetchResults} images= {this.state.resultsImages}/>
         <ResultsList results={this.state.results}/>
       </div>
     );

@@ -9,7 +9,14 @@ class SearchBar extends Component {
   }
 
   setQueryText(e) {
+    console.log(e.target.value);
     this.setState({queryText: e.target.value});
+  }
+
+  handleClick() {
+    console.log('clicked');
+    this.setState({queryText: ''});
+    this.props.fetchResults();
   }
 
   render (){
@@ -21,7 +28,7 @@ class SearchBar extends Component {
           placeholder="Search Desks"
           value={this.state.queryText}
           onChange={(e) => this.setQueryText(e)} />
-        <button>
+        <button onClick= {() => {this.handleClick()} } >
           Search
         </button>
       </div>

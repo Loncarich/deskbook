@@ -1,12 +1,14 @@
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100vh;
 }
 #app {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 .main {
@@ -31,30 +33,6 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-}
-
-.main-slider ul{
-  position: relative;
-  margin: 0;
-  padding: 0;
-  max-width: 300vw;
-  list-style: none;
-}
-
-.main-slider ul li{
-  /*position: relative;*/
-  display: inline;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  max-width: 100%;
-  text-align: center;
-}
-
-.main-slider li img {
-  max-width: 100vw;
-  max-height : 100%;
-  vertical-align: top;
 }
 
 button.main-slider-prev, button.main-slider-next {
@@ -97,6 +75,12 @@ button:focus {
   -webkit-flex: 3 0 0;
   flex: 2 0 0;
   width: 100%;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.results-list-entry {
+
 }
 
 .search-bar {

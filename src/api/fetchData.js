@@ -9,9 +9,8 @@ export default function fetchData (param){
         const resultsImages= results.map(result => {
           return result.image_urls[0];
         })
-        param.setState({results: results, resultsImages: resultsImages});
-        //localStorage.setItem( 'results', results );
-        //localStorage.setItem( 'resultImages', resultImages );
+        param.setState({results: results, resultsImages: resultsImages},
+          console.log(param.state.results));
       }).catch(err => console.log(err));
 }
 
