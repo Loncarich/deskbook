@@ -16,18 +16,18 @@ This app was built using React, Vanilla JS, CSS3, HTML5, Node, and Express.
 
 ## Features
 
-#Search Bar
+###Search Bar
 The Search comes with several functionalities.
 Once you 'focus' in the search bar, you'll see a list of available locations appear under the Search Bar. As you type out your desired location, your input text is matched against available locations and the locations list is filtered. Only the locations that match your text are rendered below the search bar.
 At any time, you can click on a location in the drop down box and that location text will be rendered in the Search Bar.
 If at any time, you navigate your mouse from the Search Bar section, the Search Bar will be reset as you move to another part of the page.
 
-#Slider
+###Slider
 The Slider is fully responsive and consists of a series of images with a next and previous arrow. You'll see, as you begin the slide deck, the previous arrow does not render. Similarly, as you end the slide deck, the arrow also does not re-render.
 
-#Results Entries
+###Results Entries
 You can click on any of the results entries at the bottom and the slider will automagically slide to the image matching that result entry location.
 
-#Overall App Functionalities
+###Overall App Functionalities
 Through a combination of media queries and other responsive design techniques, the app is not just adaptive but fully responsive. You can drag any corner of the screen and see the app adjust automatically. Moreover, the app persists state; you can refresh at any time and the app will re-render with your previous state.
 
