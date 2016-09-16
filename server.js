@@ -17,9 +17,9 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-// app.get('/*', function(req, res){
-//   res.sendFile(__dirname + '/index.html');
-// });
+app.get('*', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
 
 app.post('/data', function(req, res){
   var query= req.body.query.toLowerCase();
