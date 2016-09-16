@@ -1,0 +1,1 @@
+module.exports= ['Amsterdam', 'Rotterdam', 'Ultrecht', 'Brussels', 'Barcelona', 'Chiang Mai'];
