@@ -1,4 +1,6 @@
 import {urls, imageToURI} from '../../data/imageURLs.js';
+import 'whatwg-fetch';
+
 export default function fetchData (param, query){
   fetch('https://deskbookers-remix.herokuapp.com/data', {
       method: 'POST',
@@ -24,10 +26,6 @@ export default function fetchData (param, query){
             });
         if(results.length > 0){
           param.setState({results: results, resultsImages: resultsImages, hasSearched: true});
-          var storageImages= [];
-          // urls.forEach((url, index) =>{
-          //   storageImages.push(imageToURI(url))
-          // });
           var stringStorage= JSON.stringify(urls);
           localStorage.setItem('resultsImages', stringStorage);
         } else{

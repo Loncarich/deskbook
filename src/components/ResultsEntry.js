@@ -15,7 +15,7 @@ const ResultsEntry = (props) => {
                 <span>
                   {props.score}
                 </span>
-                <img src='http://localhost:3000/images/star.svg' alt= 'star'/>
+                <img src='https://deskbookers-remix.herokuapp.com/images/star.svg' alt= 'star'/>
               </div> :
               <div className='container-image-score'>Be the first to rate!</div>
             }
