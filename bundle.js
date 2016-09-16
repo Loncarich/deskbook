@@ -4445,8 +4445,8 @@
 	    'div',
 	    { className: 'main-navbar' },
 	    'Deskbookers',
-	    _react2.default.createElement('img', { className: 'main-navbar-image1', src: 'http://localhost:3000/images/desk.svg', alt: 'desk' }),
-	    _react2.default.createElement('img', { src: 'http://localhost:3000/images/book.svg', alt: 'book' })
+	    _react2.default.createElement('img', { className: 'main-navbar-image1', src: 'https://deskbookers-remix.herokuapp.com/images/desk.svg', alt: 'desk' }),
+	    _react2.default.createElement('img', { src: 'https://deskbookers-remix.herokuapp.com/images/book.svg', alt: 'book' })
 	  );
 	};
 
@@ -4770,7 +4770,7 @@
 	          { onClick: function onClick() {
 	              _this3.handleClick();
 	            } },
-	          _react2.default.createElement('img', { src: 'http://localhost:3000/images/search-darkgrey.svg', alt: 'search' })
+	          _react2.default.createElement('img', { src: 'https://deskbookers-remix.herokuapp.com/images/search-darkgrey.svg', alt: 'search' })
 	        )
 	      );
 	    }
@@ -4860,7 +4860,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'main-resultslist-none' },
-	        _react2.default.createElement('img', { src: 'http://localhost:3000/images/search-grey.svg' }),
+	        _react2.default.createElement('img', { src: 'https://deskbookers-remix.herokuapp.com/images/search-grey.svg' }),
 	        _react2.default.createElement(
 	          'div',
 	          null,

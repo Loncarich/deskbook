@@ -20,7 +20,7 @@ const ResultsList = (props) => {
     } else if (props.results.length === 0 && props.hasSearched === true || props.hasSearched === 'true') {
       return (
         <div className= 'main-resultslist-none'>
-          <img src= 'http://localhost:3000/images/search-grey.svg'/>
+          <img src= 'https://deskbookers-remix.herokuapp.com/images/search-grey.svg'/>
           <div>
             No Search Results Found
           </div>
