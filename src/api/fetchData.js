@@ -1,6 +1,6 @@
 import {urls, imageToURI} from '../../data/imageURLs.js';
 export default function fetchData (param, query){
-  fetch('http://localhost:3000/data', {
+  fetch('http://deskbookers-remix.herokuapp.com/data', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

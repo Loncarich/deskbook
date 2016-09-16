@@ -4969,7 +4969,7 @@
 	var _imageURLs = __webpack_require__(43);
 
 	function fetchData(param, query) {
-	  fetch('http://localhost:3000/data', {
+	  fetch('http://deskbookers-remix.herokuapp.com/data', {
 	    method: 'POST',
 	    headers: {
 	      'Accept': 'application/json',
@@ -5016,9 +5016,9 @@
 
 	'use strict';
 
-	module.exports.urlsInit = ['http://localhost:3000/images/default1.XL.jpg', 'http://localhost:3000/images/default2.large.jpg', 'http://localhost:3000/images/default1.XL.jpg', 'http://localhost:3000/images/default2.large.jpg'];
+	module.exports.urlsInit = ['http://deskbookers-remix.herokuapp.com/images/default1.XL.jpg', 'http://deskbookers-remix.herokuapp.com/images/default2.large.jpg', 'http://deskbookers-remix.herokuapp.com/images/default1.XL.jpg', 'http://deskbookers-remix.herokuapp.com/images/default2.large.jpg'];
 
-	module.exports.urls = ['http://localhost:3000/images/default5.jpg', 'http://localhost:3000/images/default6.jpg', 'http://localhost:3000/images/default7.jpg', 'http://localhost:3000/images/default8.jpg'];
+	module.exports.urls = ['http://deskbookers-remix.herokuapp.com/images/default5.jpg', 'http://deskbookers-remix.herokuapp.com/images/default6.jpg', 'http://deskbookers-remix.herokuapp.com/images/default7.jpg', 'http://deskbookers-remix.herokuapp.com/images/default8.jpg'];
 
 	module.exports.imageToURI = function (img) {
 	  var canvas = document.createElement("canvas");
