@@ -4892,8 +4892,8 @@
 	    'div',
 	    { className: 'main-navbar' },
 	    'Deskbookers',
-	    _react2.default.createElement('img', { className: 'main-navbar-image1', src: 'http://deskbookers-remix.herokuapp.com/images/desk.svg', alt: 'desk' }),
-	    _react2.default.createElement('img', { src: 'http://deskbookers-remix.herokuapp.com/images/book.svg', alt: 'book' })
+	    _react2.default.createElement('img', { className: 'main-navbar-image1', src: 'https://deskbookers-remix.herokuapp.com/images/desk.svg', alt: 'desk' }),
+	    _react2.default.createElement('img', { src: 'https://deskbookers-remix.herokuapp.com/images/book.svg', alt: 'book' })
 	  );
 	};
 
@@ -5217,7 +5217,7 @@
 	          { onClick: function onClick() {
 	              _this3.handleClick();
 	            } },
-	          _react2.default.createElement('img', { src: 'http://deskbookers-remix.herokuapp.com/search-darkgrey.svg', alt: 'search' })
+	          _react2.default.createElement('img', { src: 'https://deskbookers-remix.herokuapp.com/images/search-darkgrey.svg', alt: 'search' })
 	        )
 	      );
 	    }
@@ -5307,7 +5307,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'main-resultslist-none' },
-	        _react2.default.createElement('img', { src: 'http://deskbookers-remix.herokuapp.com/images/search-grey.svg' }),
+	        _react2.default.createElement('img', { src: 'https://deskbookers-remix.herokuapp.com/images/search-grey.svg' }),
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -5367,7 +5367,7 @@
 	          null,
 	          props.score
 	        ),
-	        _react2.default.createElement('img', { src: 'http://deskbookers-remix.herokuapp.com/images/star.svg', alt: 'star' })
+	        _react2.default.createElement('img', { src: 'https://deskbookers-remix.herokuapp.com/images/star.svg', alt: 'star' })
 	      ) : _react2.default.createElement(
 	        'div',
 	        { className: 'container-image-score' },
@@ -5418,7 +5418,7 @@
 	__webpack_require__(1);
 
 	function fetchData(param, query) {
-	  fetch('http://deskbookers-remix.herokuapp.com/data', {
+	  fetch('https://deskbookers-remix.herokuapp.com/data', {
 	    method: 'POST',
 	    headers: {
 	      'Accept': 'application/json',

@@ -102,7 +102,7 @@ class SearchBar extends Component {
           {this.renderLocations()}
         </div>
         <button onClick= {() => {this.handleClick()} } >
-          <img src='http://deskbookers-remix.herokuapp.com/search-darkgrey.svg' alt= 'search'/>
+          <img src='https://deskbookers-remix.herokuapp.com/images/search-darkgrey.svg' alt= 'search'/>
         </button>
         </div>
     );
