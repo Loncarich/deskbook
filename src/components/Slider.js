@@ -16,9 +16,10 @@ class Slider extends Component {
   handleResize() {
     //update leftMargin on resize
     var elemHolder= document.getElementById('holder');
-    const currentViewWidth= document.documentElement.clientWidth,
+    const currentViewWidth= document.documentElement.scrollWidth,
           newMargin= currentViewWidth * (this.props.currentImageIndex * -1) + 'px';
           elemHolder.style.left= newMargin;
+
     //update slide height on resize
     var holderWidth= getComputedStyle(elemHolder).getPropertyValue('width'),
         holderHeight= getComputedStyle(elemHolder).getPropertyValue('height'),
@@ -34,7 +35,8 @@ class Slider extends Component {
   }
 
   render() {
-    const viewWidth= document.documentElement.clientWidth,
+    const viewWidth= document.documentElement.scrollWidth,
+          offSetWidth= document.documentElement.offsetWidth,
           numImages= this.props.images.length,
           images= this.props.images.map((image, index) => {
             var heightHolder;
